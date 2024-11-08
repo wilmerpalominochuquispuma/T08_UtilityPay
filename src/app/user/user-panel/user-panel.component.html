@@ -1,0 +1,182 @@
+<div class="flex min-h-screen bg-gray-100 dark:bg-gray-900">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-[#BB2525] dark:bg-gray-800 text-white flex flex-col">
+    <div class="p-6 font-bold text-2xl tracking-wide">UTILITY PAY</div>
+    <nav class="flex-1 px-4 space-y-2">
+      <a
+        href="javascript:void(0)"
+        (click)="selectSection('inicio')"
+        class="flex items-center py-2 px-3 rounded-lg hover:bg-[#D44747] dark:hover:bg-gray-700"
+        [ngClass]="{
+          'bg-[#D44747] dark:bg-gray-700': selectedSection === 'inicio'
+        }"
+      >
+        <span class="material-icons">home</span>
+        <span class="ml-2">Inicio</span>
+      </a>
+      <a
+        href="javascript:void(0)"
+        (click)="selectSection('recursos')"
+        class="flex items-center py-2 px-3 rounded-lg hover:bg-[#D44747] dark:hover:bg-gray-700"
+        [ngClass]="{
+          'bg-[#D44747] dark:bg-gray-700': selectedSection === 'recursos'
+        }"
+      >
+        <span class="material-icons">book</span>
+        <span class="ml-2">Recursos</span>
+      </a>
+      <a
+        href="javascript:void(0)"
+        (click)="selectSection('servicios')"
+        class="flex items-center py-2 px-3 rounded-lg hover:bg-[#D44747] dark:hover:bg-gray-700"
+        [ngClass]="{
+          'bg-[#D44747] dark:bg-gray-700': selectedSection === 'servicios'
+        }"
+      >
+        <span class="material-icons">credit_card</span>
+        <span class="ml-2">Servicios</span>
+      </a>
+      <a
+        href="javascript:void(0)"
+        (click)="selectSection('historial')"
+        class="flex items-center py-2 px-3 rounded-lg hover:bg-[#D44747] dark:hover:bg-gray-700"
+        [ngClass]="{
+          'bg-[#D44747] dark:bg-gray-700': selectedSection === 'historial'
+        }"
+      >
+        <span class="material-icons">history</span>
+        <span class="ml-2">Historial de pagos</span>
+      </a>
+      <a
+        href="javascript:void(0)"
+        (click)="selectSection('configuracion')"
+        class="flex items-center py-2 px-3 rounded-lg hover:bg-[#D44747] dark:hover:bg-gray-700"
+        [ngClass]="{
+          'bg-[#D44747] dark:bg-gray-700': selectedSection === 'configuracion'
+        }"
+      >
+        <span class="material-icons">settings</span>
+        <span class="ml-2">Configuración</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-1 p-8">
+    <header
+      class="flex justify-between items-center bg-white dark:bg-gray-800 shadow-md p-4 rounded-lg mb-6"
+    >
+      <h1 class="text-2xl font-bold text-[#507687] dark:text-white">
+        Bienvenido a <span class="text-[#BB2525] dark:text-white">UPay!</span>
+      </h1>
+      <div class="flex items-center space-x-4">
+        <!-- Icono de cambio de modo al lado del nombre -->
+        <button
+          (click)="toggleDarkMode()"
+          class="flex items-center justify-center w-8 h-8"
+        >
+          <svg
+            *ngIf="isDarkMode; else sunIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-[#507687] dark:text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m8.485-8.485h-1m-14.97 0h-1m10.607 10.607l-.707-.707M5.636 5.636l-.707-.707m10.607-.707l-.707.707M5.636 18.364l-.707.707M12 5a7 7 0 100 14 7 7 0 000-14z"
+            />
+          </svg>
+          <ng-template #sunIcon>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-[#507687] dark:text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 2a9.956 9.956 0 00-7.071 2.929C3.516 6.342 2 8.671 2 11.343s1.516 5.001 2.929 6.414A9.956 9.956 0 0012 21.657a9.956 9.956 0 007.071-2.929C20.485 16.345 22 14.016 22 11.343S20.485 6.342 19.071 4.929A9.956 9.956 0 0012 2z"
+              />
+            </svg>
+          </ng-template>
+        </button>
+        <!-- Nombre del usuario e ícono de cuenta -->
+        <span class="text-gray-600 dark:text-gray-200">Alely Quispe</span>
+        <span class="material-icons text-[#507687] dark:text-white"
+          >account_circle</span
+        >
+      </div>
+    </header>
+
+    <!-- Sección de Inicio -->
+    <section
+      *ngIf="selectedSection === 'inicio'"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow p-6"
+    >
+      <h2 class="text-xl font-semibold text-[#507687] dark:text-white mb-4">
+        Inicio
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Esta es la sección de inicio.
+      </p>
+    </section>
+
+    <!-- Sección de Recursos -->
+    <section
+      *ngIf="selectedSection === 'recursos'"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow p-6"
+    >
+      <h2 class="text-xl font-semibold text-[#507687] dark:text-white mb-4">
+        Recursos
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Aquí puedes encontrar los recursos.
+      </p>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section
+      *ngIf="selectedSection === 'servicios'"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow p-6"
+    >
+      <h2 class="text-xl font-semibold text-[#507687] dark:text-white mb-4">
+        Servicios
+      </h2>
+      <!-- Insertar el componente servicios-list -->
+      <app-servicios-list></app-servicios-list>
+    </section>
+
+    <!-- Sección de Historial de pagos -->
+    <section
+      *ngIf="selectedSection === 'historial'"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow p-6"
+    >
+      <h2 class="text-xl font-semibold text-[#507687] dark:text-white mb-4">
+        Historial de pagos
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Aquí puedes ver tu historial de pagos.
+      </p>
+    </section>
+
+    <!-- Sección de Configuración -->
+    <section
+      *ngIf="selectedSection === 'configuracion'"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow p-6"
+    >
+      <h2 class="text-xl font-semibold text-[#507687] dark:text-white mb-4">
+        Configuración
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Aquí puedes cambiar la configuración de tu cuenta.
+      </p>
+    </section>
+  </div>
+</div>

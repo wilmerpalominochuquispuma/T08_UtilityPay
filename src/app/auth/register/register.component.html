@@ -1,0 +1,101 @@
+<div
+  class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-gray-800"
+>
+  <button
+    (click)="goToHome()"
+    class="absolute top-4 left-4 text-gray-800 dark:text-gray-200 text-2xl"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"
+      />
+    </svg>
+  </button>
+  <button
+    (click)="toggleDarkMode()"
+    class="absolute top-4 right-4 text-gray-800 dark:text-gray-200 text-2xl"
+  >
+    <svg *ngIf="isDarkMode; else sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-8.485h-1m-14.97 0h-1m10.607 10.607l-.707-.707M5.636 5.636l-.707-.707m10.607-.707l-.707.707M5.636 18.364l-.707.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+    </svg>
+    <ng-template #sunIcon>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a9.956 9.956 0 00-7.071 2.929C3.516 6.342 2 8.671 2 11.343s1.516 5.001 2.929 6.414A9.956 9.956 0 0012 21.657a9.956 9.956 0 007.071-2.929C20.485 16.345 22 14.016 22 11.343S20.485 6.342 19.071 4.929A9.956 9.956 0 0012 2z" />
+      </svg>
+    </ng-template>
+  </button>
+
+  <div
+    class="bg-white dark:bg-gray-800 p-10 rounded-lg shadow-lg flex flex-col items-center w-full max-w-2xl transform hover:scale-105 transition duration-300"
+  >
+    <h2 class="text-[#507687] dark:text-gray-200 text-3xl font-bold mb-2 text-center">
+      Registro de usuario
+    </h2>
+    <p class="text-[#BB2525] dark:text-red-400 text-lg font-semibold mb-6 text-center">
+      Nuevo acceso
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      <input
+        type="email"
+        placeholder="Correo electrónico"
+        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#507687] dark:focus:ring-[#5A9BB5] transition duration-300 dark:bg-gray-700 dark:text-gray-300"
+        [(ngModel)]="email"
+      />
+      <input
+        type="text"
+        placeholder="Nombre Completo"
+        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#507687] dark:focus:ring-[#5A9BB5] transition duration-300 dark:bg-gray-700 dark:text-gray-300"
+        [(ngModel)]="fullName"
+      />
+      <input
+        type="password"
+        placeholder="Crear Contraseña"
+        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#507687] dark:focus:ring-[#5A9BB5] transition duration-300 dark:bg-gray-700 dark:text-gray-300"
+        [(ngModel)]="password"
+      />
+      <input
+        type="password"
+        placeholder="Confirmar contraseña"
+        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#507687] dark:focus:ring-[#5A9BB5] transition duration-300 dark:bg-gray-700 dark:text-gray-300"
+        [(ngModel)]="confirmPassword"
+      />
+    </div>
+
+    <button
+      class="w-full bg-gradient-to-r from-[#507687] to-[#2b4d57] text-white py-3 rounded-lg shadow-md mt-6 hover:bg-gradient-to-l hover:shadow-lg transition duration-300 flex items-center justify-center"
+      (click)="connectWallet()"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
+        alt="MetaMask Logo"
+        class="w-5 h-5 mr-2"
+      />
+      Conectar Billetera
+    </button>
+
+    <div class="flex space-x-4 mt-6 w-full">
+      <button
+        class="w-full bg-gray-400 text-white py-3 rounded-lg shadow-md hover:bg-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700 transition duration-300"
+        (click)="cancel()"
+      >
+        Cancelar
+      </button>
+      <button
+        class="w-full bg-gradient-to-r from-[#507687] to-[#2b4d57] text-white py-3 rounded-lg shadow-md hover:bg-gradient-to-l hover:shadow-lg transition duration-300"
+        (click)="register()"
+      >
+        Registrar
+      </button>
+    </div>
+  </div>
+</div>

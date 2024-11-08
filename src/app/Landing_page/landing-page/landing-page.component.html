@@ -1,0 +1,256 @@
+<div class="m-0 p-0 min-h-screen flex flex-col">
+  <div class="bg-gradient-to-b from-[#B43F3F] to-[#B43F3F] dark:from-gray-900 dark:to-gray-800 flex-grow flex flex-col items-center pb-10">
+    <header class="w-full bg-gradient-to-r from-[#B43F3F] to-[#B43F3F] dark:from-gray-900 dark:to-gray-800 py-4 px-8 flex justify-between items-center border-b border-white shadow-lg dark:border-gray-700">
+      <div class="text-4xl font-bold text-white tracking-widest dark:text-gray-200">
+        UTILITY PAY
+      </div>
+      <nav class="flex space-x-6 items-center">
+        <a class="text-white text-lg hover:underline dark:text-gray-200" [routerLink]="['/register']">Crear cuenta</a>
+        <a class="text-white text-lg hover:underline dark:text-gray-200" href="#">Para ti</a>
+        <a class="text-white text-lg hover:underline dark:text-gray-200" href="#">Recursos</a>
+        <a class="text-white text-lg hover:underline dark:text-gray-200" href="#">Centro de ayuda</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button (click)="toggleDarkMode()" class="text-white flex items-center justify-center w-8 h-8">
+          <svg *ngIf="isDarkMode; else sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-8.485h-1m-14.97 0h-1m10.607 10.607l-.707-.707M5.636 5.636l-.707-.707m10.607-.707l-.707.707M5.636 18.364l-.707.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+          </svg>
+          <ng-template #sunIcon>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a9.956 9.956 0 00-7.071 2.929C3.516 6.342 2 8.671 2 11.343s1.516 5.001 2.929 6.414A9.956 9.956 0 0012 21.657a9.956 9.956 0 007.071-2.929C20.485 16.345 22 14.016 22 11.343S20.485 6.342 19.071 4.929A9.956 9.956 0 0012 2z" />
+            </svg>
+          </ng-template>
+        </button>
+        <button class="border border-white text-white py-1.5 px-5 rounded-full hover:bg-white hover:text-[#B43F3F] transition duration-300 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-[#B43F3F]" [routerLink]="['/login']">
+          Ingresar
+        </button>
+      </div>
+    </header>
+    <div class="flex flex-col items-center mt-16 text-white space-y-6 dark:text-gray-200">
+      <div class="flex flex-col items-center text-center space-y-6">
+        <h1 class="text-8xl font-extrabold tracking-tight leading-tight hover:scale-105 transition-transform duration-500 dark:text-gray-100">
+          UPay
+        </h1>
+        <p class="mt-2 text-2xl font-light tracking-wide dark:text-gray-300">¿Qué pagamos hoy?</p>
+        <div class="mt-6 w-full max-w-md flex items-center bg-white rounded-full px-8 py-4 shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 dark:bg-gray-700 dark:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-500 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 11c0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3 3 1.3431 3 3zm5-3h6m-3 3v6M12 8v10m0-5h5m-5 3h5m-5 3h5" />
+          </svg>
+          <input type="text" placeholder="Ingresa tu consulta..." class="w-full bg-transparent text-lg text-gray-700 placeholder-gray-500 outline-none pl-6 dark:bg-gray-700 dark:text-gray-300" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="w-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-16 px-4 shadow-lg">
+    <h2 class="text-center text-4xl font-semibold mb-6 dark:text-gray-100">
+      ¿Qué servicios puedo pagar a través de
+      <span class="text-[#507687] dark:text-[#9bc1e2]">UPay?</span>
+    </h2>
+    <p class="text-center text-gray-500 dark:text-gray-300 mb-8 text-lg">
+      Puedes pagar tus servicios de luz, teléfono, cable y mucho más sin tener
+      que salir de casa.
+    </p>
+    <div class="relative">
+      <div id="cardCarousel" class="flex overflow-x-auto space-x-4 scroll-smooth scrollbar-hide">
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">lightbulb</span>
+          <span class="text-lg font-semibold">Servicios de Luz</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">water_drop</span>
+          <span class="text-lg font-semibold">Servicios de Agua</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">wifi</span>
+          <span class="text-lg font-semibold">Telecomunicaciones</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">local_gas_station</span>
+          <span class="text-lg font-semibold">Servicios de Gas</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">receipt</span>
+          <span class="text-lg font-semibold">Trámites y Tributos</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">business</span>
+          <span class="text-lg font-semibold">Proveedores de negocio</span>
+        </div>
+        <div class="min-w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-6 h-36 flex flex-col items-center justify-center shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <span class="material-icons text-4xl mb-2">account_balance</span>
+          <span class="text-lg font-semibold">Financieras</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 py-8 px-4 shadow-lg">
+    <h2 class="text-center text-3xl font-semibold mb-6">
+      Ahora paga tus servicios desde casa
+      <span class="text-blue-500 dark:text-blue-400">¡con tu UPay!</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6 ml-6">
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-green-500 text-white rounded-full font-semibold">1</span>
+          <p class="text-gray-600 dark:text-gray-300">
+            Ingresa a la app UPay y selecciona el botón “Pagar Servicios”.
+          </p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-200 rounded-full font-semibold">2</span>
+          <p class="text-gray-600 dark:text-gray-300">
+            Utiliza el buscador o selecciona una categoría.
+          </p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-200 rounded-full font-semibold">3</span>
+          <p class="text-gray-600 dark:text-gray-300">Ingresa el código del cliente.</p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-200 rounded-full font-semibold">4</span>
+          <p class="text-gray-600 dark:text-gray-300">Selecciona lo que quieres pagar.</p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-200 rounded-full font-semibold">5</span>
+          <p class="text-gray-600 dark:text-gray-300">
+            Selecciona el recibo que deseas pagar y dale a "Pagar servicios".
+          </p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-200 rounded-full font-semibold">6</span>
+          <p class="text-gray-600 dark:text-gray-300">¡Listo! Ya pagaste tu servicio.</p>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <img src="assets/img/pasos.png" alt="Pasos" class="w-96 h-auto" />
+      </div>
+    </div>
+  </section>
+  <section class="w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 py-12 px-4 shadow-lg">
+    <h2 class="text-center text-3xl font-semibold mb-6">
+      ¿Por qué pagar mis servicios con
+      <span class="text-blue-500 dark:text-blue-400">UPay?</span>
+    </h2>
+    <p class="text-center text-gray-500 dark:text-gray-300 mb-8 text-lg">
+      Paga tus servicios de luz, teléfono, cable y mucho más a través de la
+      página, desde cualquier lugar y 100% en línea. ¡Es totalmente gratis y
+      seguro!
+    </p>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+      <div class="flex flex-col space-y-6">
+        <div class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+          <div class="bg-purple-100 dark:bg-purple-700 p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500 dark:text-purple-300" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M5 8c0-1.66 1.34-3 3-3h8c1.66 0 3 1.34 3 3v6c0 1.66-1.34 3-3 3H8c-1.66 0-3-1.34-3-3V8zm8 10.5V21h2v-2.5H9v2H7v-2.5H5v2c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-2h-2v2.5h-2v-2.5h-2zm-5.5-6H7V9.5H5.5V12H3.5v1.5h2v2h1.5v-2h2v-1.5H7v-1zm4.5 0h1.5v-1.5h-1.5V12zm0-2.5H12V9.5h1.5V9h-3v3H11v-1zm3 1.5V12h-1.5v-1.5h1.5zm0-3V9h1.5v1.5H14z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400">¡Es gratis!</h3>
+            <p class="text-gray-500 dark:text-gray-300 text-sm">
+              No cobramos ninguna comisión por yapear tus servicios.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+          <div class="bg-purple-100 dark:bg-purple-700 p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500 dark:text-purple-300" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M3 12c0-2.75 1.5-5.25 3.5-6.75V3a.75.75 0 0 1 1.5 0v1.25c0 .41-.34.75-.75.75H5.25c-.41 0-.75-.34-.75-.75S4.84 3 5.25 3h6.75c.41 0 .75.34.75.75v6h-3.5v-3a.75.75 0 0 1 1.5 0v3.5H15v-5c0-.41.34-.75.75-.75h2a.75.75 0 0 1 0 1.5h-2v4c0 .41-.34.75-.75.75h-2v3H18a1.5 1.5 0 0 1 0 3H6.5a1.5 1.5 0 0 1 0-3h2.5v-3h-.75v4H8v2h1.5v-1.5H15v1.5H9.5v2H10a1.5 1.5 0 0 1 1.5-1.5v1.5H14V20H12V19a1.5 1.5 0 0 1 1.5-1.5h3.5v1.5h-2v3H15V20H18v-2.5h-4v-2.5h-2.5V12z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400">¡Es seguro!</h3>
+            <p class="text-gray-500 dark:text-gray-300 text-sm">
+              Contamos con el respaldo del BCP.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <img src="assets/img/servicios.png" alt="Servicios" class="w-80 h-auto" />
+      </div>
+      <div class="flex flex-col space-y-6">
+        <div class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+          <div class="bg-purple-100 dark:bg-purple-700 p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500 dark:text-purple-300" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M15 3c-3.09 0-6 1.95-6 5.33v.34H9v4h2v-1.5h.5v-1.25h1v-1.75H12v-2.5a1.5 1.5 0 0 1 3 0V7h-1.5v1.5H14v2.5H16v.75h-2V12h.5v1h-1v1.75h3v-2.5h.5v.25H20V9h-2v2h.5v1h.5v1h-1v-1.5H15v2h-2V8.67c0-3.17 1.67-5.67 4-5.67H15z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400">¡Es al toque!</h3>
+            <p class="text-gray-500 dark:text-gray-300 text-sm">
+              Solo necesitas buscar el servicio que deseas pagar.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+          <div class="bg-purple-100 dark:bg-purple-700 p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500 dark:text-purple-300" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M10.5 15c0-1.1.9-2 2-2s2 .9 2 2H19V9h1.5V7h-1V3.5H5v3.5H3.5v2H5v6h7V9a.5.5 0 0 1 1 0v6zM5 5v1.5h14V5h-14zm-2 7H19v2H4.5c-.83 0-1.5.67-1.5 1.5S3.67 17 4.5 17h7c.83 0 1.5-.67 1.5-1.5H7a.5.5 0 0 0 0-1h5.5V9h1V7H13a.5.5 0 0 0 0-1H7v1.5H5v6H4a.5.5 0 0 0 0 1H2v1.5z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400">100% online</h3>
+            <p class="text-gray-500 dark:text-gray-300 text-sm">Paga desde donde sea que estés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 py-12 px-4 shadow-lg">
+    <h2 class="text-center text-3xl font-semibold mb-6">Nuestro Equipo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="flex flex-col items-center space-y-4">
+        <img src="assets/img/pasos.png" alt="Foto de Integrante" class="rounded-full w-40 h-40 object-cover" />
+        <h3 class="text-xl font-semibold">Diego Avendaño</h3>
+        <p class="text-gray-500 dark:text-gray-300">CEO & Fundador</p>
+      </div>
+      <div class="flex flex-col items-center space-y-4">
+        <img src="assets/img/pasos.png" alt="Foto de Integrante" class="rounded-full w-40 h-40 object-cover" />
+        <h3 class="text-xl font-semibold">Alely Quispe</h3>
+        <p class="text-gray-500 dark:text-gray-300">Directora de Tecnología</p>
+      </div>
+      <div class="flex flex-col items-center space-y-4">
+        <img src="assets/img/wilmerpalomino.jpg" alt="Foto de Integrante" class="rounded-full w-40 h-40 object-cover" />
+        <h3 class="text-xl font-semibold">Wilmer Palomino</h3>
+        <p class="text-gray-500 dark:text-gray-300">Director de Marketing</p>
+      </div>
+    </div>
+  </section>
+  <section class="w-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-12 px-4 shadow-lg">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-semibold">Preguntas <span class="text-blue-500 dark:text-blue-400">frecuentes</span></h2>
+        <p class="text-gray-500 dark:text-gray-300 mb-4">Encuentra las respuestas a tus preguntas aquí:</p>
+        <button class="bg-blue-500 dark:bg-blue-700 text-white py-3 px-6 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 transition duration-300 shadow-lg">Ir al centro de ayuda</button>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div class="py-4 px-6 border-b cursor-pointer flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-600">
+            <p class="font-medium text-gray-700 dark:text-gray-300">¿Cómo pago mis servicios con UPay?</p>
+            <span class="text-gray-500 dark:text-gray-400">></span>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div class="py-4 px-6 border-b cursor-pointer flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-600">
+            <p class="font-medium text-gray-700 dark:text-gray-300">¿Recibiré una constancia de pago por pagar mis servicios con UPay?</p>
+            <span class="text-gray-500 dark:text-gray-400">></span>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div class="py-4 px-6 cursor-pointer flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-600">
+            <p class="font-medium text-gray-700 dark:text-gray-300">¿Cuál es el monto máximo para pagar servicios con UPay?</p>
+            <span class="text-gray-500 dark:text-gray-400">></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="w-full bg-[#B43F3F] dark:bg-gray-900 text-center py-4">
+    <p class="text-white dark:text-gray-300">&copy; 2024 Utility Pay. Todos los derechos reservados.</p>
+  </footer>
+  

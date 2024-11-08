@@ -1,0 +1,46 @@
+<div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#507687] dark:text-white mb-6">Pago de Servicios Públicos</h2>
+
+  <!-- Botón para agregar fondos -->
+  <button
+    (click)="addFunds()"
+    class="w-full mb-4 bg-green-500 text-white py-3 rounded-lg shadow-md hover:bg-green-600 transition duration-300"
+  >
+    Agregar Fondos
+  </button>
+
+  <form (submit)="onSubmit($event)">
+    <div class="mb-4">
+      <label for="service" class="block text-gray-700 dark:text-gray-300">Selecciona el Servicio</label>
+      <select
+        id="service"
+        name="service"
+        [(ngModel)]="selectedService"
+        class="w-full p-2 border border-gray-300 rounded-lg"
+      >
+        <option value="0x123...">Servicio de Luz</option>
+        <option value="0x456...">Servicio de Agua</option>
+        <option value="0x789...">Telecomunicaciones</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="amount" class="block text-gray-700 dark:text-gray-300">Monto a Pagar</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        [(ngModel)]="paymentAmount"
+        class="w-full p-2 border border-gray-300 rounded-lg"
+        placeholder="0.0"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-gradient-to-r from-[#507687] to-[#2b4d57] text-white py-3 rounded-lg shadow-md hover:bg-gradient-to-l hover:shadow-lg transition duration-300"
+    >
+      Pagar
+    </button>
+  </form>
+</div>
