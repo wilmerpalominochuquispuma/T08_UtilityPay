@@ -1,0 +1,32 @@
+# Etapa 1: Construcción del proyecto
+FROM node:20-alpine AS build
+
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar package.json y package-lock.json (si existe) para instalar dependencias
+COPY package*.json ./
+
+# Instalar dependencias
+RUN npm install --silent
+
+# Copiar todo el código fuente al contenedor
+COPY . .
+
+# Compilar la aplicación Angular
+RUN npm run build --configuration T08_Utility_pay
+
+# Etapa 2: Imagen ligera de producción con servidor web Nginx
+FROM nginx:alpine
+
+# Copiar el archivo de configuración de Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar los archivos compilados desde la etapa anterior
+COPY --from=build /app/dist/t08-utility-pay /usr/share/nginx/html
+
+# Exponer el puerto 80 para el servidor web
+EXPOSE 80
+
+# Comando para iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
