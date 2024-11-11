@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: giovannipalomino/t08_utilitypay:latest
+    ports:
+      - "80:80"
